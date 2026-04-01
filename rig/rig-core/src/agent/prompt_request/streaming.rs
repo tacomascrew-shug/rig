@@ -671,7 +671,7 @@ where
                 }
 
                 // Set the current prompt to the last message in new_messages
-                current_prompt = match new_messages.pop() {
+                current_prompt = match new_messages.last().cloned() {
                     Some(prompt) => prompt,
                     None => unreachable!("New messages should never be empty at this point"),
                 };
